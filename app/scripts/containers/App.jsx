@@ -39,7 +39,9 @@ export class App extends React.Component {
 
     /* istanbul ignore else */
     if (!user.isAuthenticated && nextUser.isAuthenticated) {
-      dispatch(showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' }));
+      dispatch(
+        showAlert('Hello! And welcome!', { type: 'success', icon: 'i-trophy' })
+      );
     }
   }
 
@@ -64,14 +66,52 @@ export class App extends React.Component {
           <Header dispatch={dispatch} user={user} />
           <main className="app__main">
             <Switch>
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/" exact component={Home} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/free-trial" exact component={FreeTrial} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/confirmation" exact component={Confirmation} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/match" exact component={Match} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/no-match" exact component={NoMatch} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/secondary-form" exact component={SecondaryForm} />
-              <RoutePublic isAuthenticated={user.isAuthenticated} path="/old-home" component={OldHome} />
-              <RoutePrivate isAuthenticated={user.isAuthenticated} path="/private" component={Private} />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/"
+                exact
+                component={Home}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/free-trial"
+                exact
+                component={FreeTrial}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/confirmation"
+                exact
+                component={Confirmation}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/match"
+                exact
+                component={Match}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/no-match"
+                exact
+                component={NoMatch}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/secondary-form"
+                exact
+                component={SecondaryForm}
+              />
+              <RoutePublic
+                isAuthenticated={user.isAuthenticated}
+                path="/old-home"
+                component={OldHome}
+              />
+              <RoutePrivate
+                isAuthenticated={user.isAuthenticated}
+                path="/private"
+                component={Private}
+              />
               <Route component={NotFound} />
             </Switch>
           </main>

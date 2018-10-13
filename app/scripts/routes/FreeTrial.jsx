@@ -26,11 +26,11 @@ const initialFormValues = {
     {
       day: '',
       fromTime: 0,
-      toTime: 0,
-    },
+      toTime: 0
+    }
   ],
   allergies: '',
-  specialNeeds: '',
+  specialNeeds: ''
 };
 
 const initialFormSchema = Yup.object({
@@ -50,9 +50,9 @@ const initialFormSchema = Yup.object({
     Yup.object({
       day: Yup.string().required('Day required'),
       fromTime: Yup.string().required('Start time required'),
-      toTime: Yup.string().required('End time required'),
+      toTime: Yup.string().required('End time required')
     })
-  ),
+  )
 });
 
 class FreeTrial extends React.Component {

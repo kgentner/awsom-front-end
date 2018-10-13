@@ -1,4 +1,5 @@
 import { request } from 'modules/client';
+import { push } from 'react-router-redux';
 
 /**
  * @module Sagas/User
@@ -22,13 +23,14 @@ export function* freeTrialInitialPost(data) {
     method: 'POST',
     payload: data.payload,
   };
-  console.log('inisde FreeTial: ',process.env)
+  console.log('inside FreeTial: ', process.env);
   try {
-    const response = yield call(request, `${process.env.REACT_APP_API_URL}/api/free-trial-request`, options);
+    const response = yield call(request, `${process.env.REACT_APP_API_URL_LOCAL}/api/free-trial-request`, options);
     yield put({
       type: ActionTypes.FREE_TRIAL_POST_INITIAL_SUCCESS,
       payload: { data: response },
     });
+    // yield put(push('/match'));
   }
   catch (err) {
     /* istanbul ignore next */
@@ -36,13 +38,14 @@ export function* freeTrialInitialPost(data) {
       type: ActionTypes.FREE_TRIAL_POST_INITIAL_FAILURE,
       payload: err,
     });
+    // yield put(push('/no-match'));
   }
 }
 /**
  * Login
  */
 export function* login() {
-  console.log("login")
+  console.log('login');
   try {
     yield call(delay, 400);
 
